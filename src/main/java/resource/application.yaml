@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: job-tools
