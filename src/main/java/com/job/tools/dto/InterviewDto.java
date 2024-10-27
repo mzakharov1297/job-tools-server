@@ -45,8 +45,7 @@ public class InterviewDto {
     @NotNull
     private SalaryDto salaryDto;
 
-    @NotEmpty
-    private List<@NotNull StageDto> stageDtos;
+    private List<StageDto> stageDtos;
 
     @NotNull
     private Result result;

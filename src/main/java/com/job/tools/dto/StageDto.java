@@ -6,5 +6,5 @@ import jakarta.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 
 public record StageDto(@NotBlank String key, @NotBlank String stageName, @NotNull OffsetDateTime stageDate,
-                       @NotBlank String stageComment) {
+                       String stageComment) {
 }
