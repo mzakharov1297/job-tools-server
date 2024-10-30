@@ -37,7 +37,7 @@ public class InterviewController {
         return ResponseEntity.ok(interviewService.findOneByUUID(uuid));
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<InterviewDto>> findAll() {
         log.info("Incoming request for getting all interviews");
         return ResponseEntity.ok(interviewService.findAll());
