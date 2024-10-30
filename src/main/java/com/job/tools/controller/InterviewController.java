@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -29,10 +30,17 @@ public class InterviewController {
 
     private final InterviewService interviewService;
 
+
     @GetMapping("/{uuid}")
     public ResponseEntity<InterviewDto> findOne(@NotNull(message = "UUID must not be null or empty") @PathVariable final UUID uuid) {
         log.info("Incoming request for getting an interview by uuid: {}", uuid);
         return ResponseEntity.ok(interviewService.findOneByUUID(uuid));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<InterviewDto>> findAll() {
+        log.info("Incoming request for getting all interviews");
+        return ResponseEntity.ok(interviewService.findAll());
     }
 
     @PostMapping

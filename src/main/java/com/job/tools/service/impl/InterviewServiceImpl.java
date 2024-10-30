@@ -12,7 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -32,6 +34,13 @@ public class InterviewServiceImpl implements InterviewService {
                             return new EntityNotFoundException("Interview by UUID %s not found.".formatted(uuid));
                         }
                 );
+    }
+
+    @Override
+    public List<InterviewDto> findAll() {
+        return interviewRepository.findAll().stream()
+                .map(interviewMapper::entityToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
