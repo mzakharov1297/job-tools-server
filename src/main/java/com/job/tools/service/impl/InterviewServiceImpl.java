@@ -38,10 +38,7 @@ public class InterviewServiceImpl implements InterviewService {
 
     @Override
     public List<InterviewDto> findAll() {
-        return interviewRepository.findAll()
-                .stream()
-                .map(interviewMapper::entityToDto)
-                .toList();
+        return interviewMapper.listOfDtoToEntitiesList(interviewRepository.findAll());
     }
 
     @Override

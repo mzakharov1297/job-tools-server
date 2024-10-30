@@ -17,6 +17,8 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface InterviewMapper {
 
@@ -32,6 +34,8 @@ public interface InterviewMapper {
     @Mapping(source = "stages", target = "stages", qualifiedByName = "stagesDtoListToJson")
     @Mapping(source = "result", target = "result", qualifiedByName = "mapStringToResult")
     InterviewEntity dtoToEntity(InterviewDto interviewDto);
+
+    List<InterviewDto> listOfDtoToEntitiesList(List<InterviewEntity> interviews);
 
     @Mapping(target = "salary", source = "salary", qualifiedByName = "salaryDtoToJson")
     @Mapping(target = "stages", source = "stages", qualifiedByName = "stagesDtoListToJson")
