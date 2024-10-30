@@ -11,4 +11,8 @@ public interface InterviewService {
     UUID save(InterviewDto interviewDto);
 
     void deleteByUUID(UUID uuid);
+
+    void update(UUID uuid, InterviewDto interviewDto);
+
+    void partialUpdate(UUID uuid, InterviewDto interviewDto);
 }

@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: job-tools
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/job_tools_storage
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: jt
+  liquibase:
+    change-log: db/changelog/db-changelog.yaml
+    enabled: true
+    liquibase-schema: jt

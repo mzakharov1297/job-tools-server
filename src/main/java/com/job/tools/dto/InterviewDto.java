@@ -1,17 +1,14 @@
 package com.job.tools.dto;
 
-import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -21,31 +18,36 @@ import java.util.UUID;
 @AllArgsConstructor
 public class InterviewDto {
 
-    @NotNull
     private UUID uuid;
 
     @NotBlank
+    @Length(max = 255)
     private String company;
 
     @NotBlank
+    @Length(min = 15, max = 2048)
     private String vacancyLink;
 
     @NotBlank
+    @Length(max = 255)
     private String recruterName;
 
-    @Nullable
+    @NotBlank
+    @Length(max = 200)
     private String recruterTgUsername;
 
-    @Nullable
+    @NotBlank
+    @Length(min= 13, max = 15)
     private String recruterWaNumber;
 
-    @Nullable
+    @NotBlank
+    @Length(min= 13, max = 15)
     private String recruterPhoneNumber;
 
     @NotNull
-    private SalaryDto salaryDto;
+    private SalaryDto salary;
 
-    private List<StageDto> stageDtos;
+    private StageDto stages;
 
     @NotNull
     private Result result;
